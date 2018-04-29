@@ -9,6 +9,9 @@
 
 <div class="form-horizontal">
 
+    <h3><strong>Register User Page</strong></h3>
+    <hr />
+
     @Html.ValidationSummary(true)
 
     <div class="form-group">
@@ -46,12 +49,12 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Role, new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Role, new List < SelectListItem >
-            {
-                new SelectListItem() { Text = "Admin", Value = "Admin" },
-                new SelectListItem() { Text = "Guest", Value = "Guest" },
-                new SelectListItem() { Text = "BusinessUser", Value = "BusinessUser" }
-            }, new { @class = "dropdownlist" })
+            @Html.DropDownListFor(model => model.Role, new List<SelectListItem>
+        {
+            new SelectListItem() { Text = "Admin", Value = "Admin" },
+            new SelectListItem() { Text = "Guest", Value = "Guest" },
+            new SelectListItem() { Text = "BusinessUser", Value = "BusinessUser" }
+        }, new { @class = "dropdownlist" })
             @Html.ValidationMessageFor(model => model.Role)
         </div>
     </div>
