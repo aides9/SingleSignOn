@@ -19,7 +19,9 @@ namespace SingleSignOn.Data.Repositories
 
         public async Task<ApplicationUser> GetApplicationUserByCredential(string username, string password)
         {
-            using (var command = new SqlCommand("SELECT * FROM Users WHERE Username = @Username And Password = @Password"))
+            using (var command = new SqlCommand("SELECT [Id],[Username],[Password],[CreatedBy],[CreatedOn]," +
+                                                "[ModifiedBy],[ModifiedOn],[DisplayName],[Role],[SubjectId] " +
+                                                "FROM Users WHERE Username = @Username And Password = @Password"))
             {
                 command.Parameters.Add("@Username", SqlDbType.VarChar, 20).Value  = username;
                 command.Parameters.Add("@Password", SqlDbType.VarChar, 20).Value = password;
@@ -50,7 +52,9 @@ namespace SingleSignOn.Data.Repositories
         public async Task<ApplicationUser> FindUserBySubjectId(string subjectId)
         {
             ApplicationUser user = null;
-            using (var command = new SqlCommand("SELECT * FROM [Users] WHERE [SubjectId] = @Subjectid;"))
+            using (var command = new SqlCommand("SELECT [Id],[Username],[Password],[CreatedBy],[CreatedOn]," +
+                                                "[ModifiedBy],[ModifiedOn],[DisplayName],[Role],[SubjectId]" +
+                                                "FROM [Users] WHERE [SubjectId] = @Subjectid;"))
             {
                 command.Parameters.Add(new SqlParameter("@Subjectid", subjectId));
                 user = await GetRecord(command);

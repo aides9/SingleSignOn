@@ -11,7 +11,6 @@ namespace SingleSignOn.Service.Interfaces
     {
         Task<ApplicationUser> Validate(string username, string password);
         Task<bool> Create(ApplicationUser applicationUser);
-        
 
     }
 }

@@ -8,8 +8,6 @@ namespace SingleSignOn.Models
 {
     public class UserViewModel
     {
-        public Guid Id { get; set; }
-
         public string SubjectId { get; set; }
 
         [Required]
