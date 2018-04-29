@@ -12,8 +12,7 @@ namespace SingleSignOn.Service.Controllers
     public class UserController : Controller
     {
         private readonly IAccountService _account;
-        public UserController(
-           IAccountService account)
+        public UserController(IAccountService account)
         {
             _account = account;
         }

@@ -34,7 +34,7 @@ namespace SingleSignOn.Data.Repositories
                 try
                 {
                     while (reader.Read())
-                        list.Add(PopulateRecord(reader));
+                    list.Add(PopulateRecord(reader));
                 }
                 finally
                 {

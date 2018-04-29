@@ -11,18 +11,18 @@ namespace SingleSignOn.Service.Services
 {
     public class UserProfileService : IProfileService
     {
-        protected readonly IUserRepository _userStore;
+        protected readonly IUserRepository _userRepository;
 
-        public UserProfileService(IUserRepository userStore)
+        public UserProfileService(IUserRepository userRepository)
         {
-            _userStore = userStore;
+            _userRepository = userRepository;
         }
 
         public Task GetProfileDataAsync(ProfileDataRequestContext context) // used to bind claim by getting data from DB
         {
             if (context.RequestedClaimTypes.Any())
             {
-                var user = _userStore.FindUserBySubjectId(context.Subject.GetSubjectId());
+                var user = _userRepository.FindUserBySubjectId(context.Subject.GetSubjectId());
                 if (user != null)
                 {
                     var claims = new List<Claim>
@@ -38,7 +38,7 @@ namespace SingleSignOn.Service.Services
 
         public Task IsActiveAsync(IsActiveContext context)
         {
-            var user = _userStore.FindUserBySubjectId(context.Subject.GetSubjectId());
+            var user = _userRepository.FindUserBySubjectId(context.Subject.GetSubjectId());
             context.IsActive = !(user is null);
             return Task.FromResult(0);
         }
