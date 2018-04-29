@@ -10,7 +10,7 @@ To run the Single Sign On Application in Visual Studio you first have to create 
 
 1. In Microsoft SQL Server Management right click the Databases folder and right click select restore.
 2. Select Device and click the browse button on right side.
-3. In the pop up windows, click the add button and point to the back up file directory. Click OK button. 
+3. In the pop up windows, click the add button and point to the backup.bak file directory. Click OK button. 
 4. Click OK 
 
 At this point the database exists. The Single Sign On Application can now be started (Step 5 and 10).
