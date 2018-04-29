@@ -1,0 +1,72 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Create User";
+}
+
+@using (Html.BeginForm("Create", "Admin"))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Username, new { @Value = "" })<span> *</span>
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password)<span> *</span>
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ConfirmPassword)<span> *</span>
+            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DisplayName, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DisplayName)<span> *</span>
+            @Html.ValidationMessageFor(model => model.DisplayName)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Role, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Role, new List < SelectListItem >
+            {
+                new SelectListItem() { Text = "Admin", Value = "Admin" },
+                new SelectListItem() { Text = "Guest", Value = "Guest" },
+                new SelectListItem() { Text = "BusinessUser", Value = "BusinessUser" }
+            }, new { @class = "dropdownlist" })
+            @Html.ValidationMessageFor(model => model.Role)
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+    <div class="input-append date" id="dp3">
+
+        <span class="add-on"><i class="icon-th"></i></span>
+    </div>
+    <div class="col-md-12 text-left">@ViewBag.Message</div>
+</div>
+}
+
