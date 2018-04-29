@@ -25,5 +25,15 @@ At this point the database exists. The Single Sign On Application can now be sta
 The Single Sign On Application is now running in a browser.
 
 Login Access:
+
+Admin Role
 Username: admin123
 Password: admin123
+
+Business User Role
+Username: business123
+Password: business123
+
+Guest Role
+Username: guest123
+Password: guest123
