@@ -28,7 +28,7 @@ The Single Sign On Application is now running in a browser.
 
 Login Access:
 
-Admin Role
+Admin Role (able to register user)
 Username: admin123
 Password: admin123
 
